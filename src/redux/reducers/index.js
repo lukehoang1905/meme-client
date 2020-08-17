@@ -4,5 +4,5 @@ import alertReducer from "./alert.reducer";
 
 export default combineReducers({
   meme: memeReducer,
-  alertReducer,
+  alert: alertReducer,
 });

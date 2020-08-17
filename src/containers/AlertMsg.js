@@ -4,6 +4,7 @@ import { Alert } from "react-bootstrap";
 
 const AlertMsg = () => {
   const alerts = useSelector((state) => state.alert);
+  console.log(alerts);
   return (
     alerts !== null &&
     alerts.length > 0 &&

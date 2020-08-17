@@ -27,11 +27,25 @@ const createMemeRequest = (image) => async (dispatch) => {
     dispatch({ type: types.CREATE_MEME_FAILURE, payload: error });
   }
 };
+const updateMemeRequest = (texts, memeId) => async (dispatch) => {
+  dispatch({ type: types.UPDATE_MEME_REQUEST, payload: null });
+  try {
+    const body = { texts };
+    const res = await api.put(`/memes/${memeId}`, body);
+    dispatch({
+      type: types.UPDATE_MEME_SUCCESS,
+      payload: res.data.data,
+    });
+  } catch (error) {
+    dispatch({ type: types.UPDATE_MEME_FAILURE, payload: error });
+  }
+};
 
 //issue?
 const memeActions = {
   memesRequest,
   setSelectedMeme,
   createMemeRequest,
+  updateMemeRequest,
 };
 export default memeActions;
